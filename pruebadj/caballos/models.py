@@ -8,6 +8,11 @@ class Caballo(models.Model):
     datos_generales = models.JSONField(null=True, blank=True)
 
     edad = models.IntegerField(default=10)
+    jinete_principal = models.ForeignKey(
+        'jinetes.Jinete',
+        on_delete=models.CASCADE,
+        null=True,
+    )
 
     def __str__(self):
         return f'CBL {self.nombre}'
